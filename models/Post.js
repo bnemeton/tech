@@ -25,10 +25,6 @@ Post.init(
                 key: 'id'
             }
         },
-        date: {
-            type: DataTypes.DATE,
-            defaultValue: Sequelize.NOW
-        }
 
     },
     {
