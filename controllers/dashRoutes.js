@@ -8,10 +8,10 @@ router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: req.session.id
+                user_id: req.session.user_id
             }
         })
-
+        console.log(postData)
         const plainPosts = postData.map(post => post.get({plain: true}));
         res.render('dashboard', {
             posts: plainPosts,
