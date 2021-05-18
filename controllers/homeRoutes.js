@@ -68,6 +68,8 @@ router.get('/login', (req, res) => {
       })
       const plainPost = post.get({ plain: true })
       console.log(plainPost);
+      const date = new Date(plainPost.date);
+      plainPost.date = date.toLocaleString('en-US')
       const owner = req.session.user_id === plainPost.user_id 
       res.render('post', { post: plainPost, owner: owner, logged_in: req.session.logged_in })
     } catch (err) {

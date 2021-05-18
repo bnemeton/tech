@@ -13,8 +13,14 @@ router.get('/', withAuth, async (req, res) => {
         })
         console.log(postData)
         const plainPosts = postData.map(post => post.get({plain: true}));
+        const formattedPosts = plainPosts.map(post => {
+            const date = new Date(post.date);
+            post.date = date.toLocaleString('en-US');
+            return post;
+        })
+        const reversedPosts = formattedPosts.reverse()
         res.render('dashboard', {
-            posts: plainPosts,
+            posts: reversedPosts,
             logged_in: req.session.logged_in
             })
     } catch (err) {
