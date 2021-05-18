@@ -12,8 +12,14 @@ router.get('/', async (req, res) => {
           }]
         });
         const plainPosts = postData.map(post => post.get({plain: true}))
+      
+        const formattedPosts = plainPosts.map(post => {
+          const date = new Date(post.date)
+          post.date = date.toLocaleString('en-US')
+          return post;
+        })
         console.log(plainPosts)
-        const plainReversedPosts = plainPosts.reverse()
+        const plainReversedPosts = formattedPosts.reverse()
         res.render('homepage', 
         {
           posts: plainReversedPosts,
