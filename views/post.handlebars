@@ -1,0 +1,28 @@
+{{#if owner}}
+<a class='button btn-danger' href='/edit/{{post.id}}'>edit post</a>
+{{/if}}
+<div class='card'>
+
+    <div class='card-header'>
+        <h2 class='card-header-title'>{{post.title}}</h2>
+        <input value='{{post.id}}' id='postId' type='hidden' readonly>
+        
+    <sub>{{post.date}}</sub>
+    </div>
+    <p class='card-body'>{{post.contents}}</p>
+</div>
+    {{#if logged_in}}
+    <form id='comment-form'>
+        <textarea id='comment-contents' placeholder='write a comment here!'></textarea><br>
+        <button type='submit' id='comment-submit'>post comment</button>
+    </form>
+    {{/if}}
+
+    {{#each post.comments as |comment|}}
+    <div class='card'>
+    <p>{{comment.contents}}</p>
+    <sub>{{comment.user.name}}</sub>
+    </div>
+{{/each}}
+
+<script src='/js/comment.js'></script>

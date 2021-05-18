@@ -1,9 +1,14 @@
-<ul>
+<div class='tile is-ancestor'>
+<ul class='tile is-parent is-vertical is-8'>
     {{#each posts as |post|}}
-    <li>
-        <h4>{{post.title}}</h4>
-        <p>{{post.date}}</p>
-        <p>{{post.contents}}</p>
+    <li class='tile is-child'>
+        <div class='card'>
+            <h3><a href='/post/{{post.id}}'>{{post.title}}</a></h3>
+            <sub>post by you</sub> at
+            <sub>{{post.date}}</sub>
+            <p>{{post.contents}}</p>
+        </div>
     </li>
     {{/each}}
 </ul>
+</div>

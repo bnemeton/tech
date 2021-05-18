@@ -1,0 +1,13 @@
+<div class='container'></div>
+    <div class='card'>
+        <form id="edit-post-form">
+            <input id='postId' value='{{post.id}}' type='hidden' readonly><br>
+            <input type="text" id="edit-post-title" value="{{post.title}}"><br>
+            <textarea id="edit-post-contents" >{{post.contents}}</textarea><br>
+            <button type="submit" id="edit-post-submit">update post</button><br>
+            <button id='delete-post'>delete post</button>
+        </form>
+    </div>
+</div>
+
+<script src='/js/edit.js'></script>

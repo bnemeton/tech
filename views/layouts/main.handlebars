@@ -3,24 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    {{!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tech blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel='stylesheet' href='/css/style.css'
 </head>
 
 <body>
-    <nav>
-        <a href='/'>home</a>
-        {{#if logged_in}}
-        <a href='/dash'>dash</a>
-        <a href='/dash/new'>new post</a>
-        <a href='/logout'>log out</a>
-        {{else}}
-        <a href='/login'>log in</a>
-        <a href='/signup'>sign up</a>
+    <nav class='navbar'>
+        <div class='navbar-menu'>
+            <a class='navbar-item' href='/'>home</a>
+            {{#if logged_in}}
+            <a class='navbar-item' href='/dash'>dash</a>
+            <a class='navbar-item' href='/dash/new'>new post</a>
+            <a class='navbar-item' href='#' id='logout'>log out</a>
+            {{else}}
+            <a class='navbar-item' href='/login'>log in</a>
+            <a class='navbar-item' href='/signup'>sign up</a>
         {{/if}}
+        </div>
     </nav>
     {{{body}}}
+    {{#if logged_in}}
+    <script src='/js/logout.js'></script>
+    {{/if}}
 </body>
 
 </html>
