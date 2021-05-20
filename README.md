@@ -11,3 +11,7 @@ The homepage displays all posts in reverse chronological order (most recent firs
 ## Installation
 
 If for some reason you want to run your own instance of this site, you can clone this repository. You'll have to create a .env file with the credentials for the MySQL database you want to use. Then, you should be able to start it by running 'npm run start' in the project directory. If running it locally (rather than deployed to e.g. Heroku) it will run on port 3001.
+
+## Deployed
+
+You can view the deployed app at https://frozen-earth-44297.herokuapp.com/ .
